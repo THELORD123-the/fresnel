@@ -1,16 +1,15 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import TabNavigator from './spotify/navigation/tabnav';
+// import Favorits from './spotify/composant/Favorits';
+import Bibliotheque from './spotify/application/bibliotheque';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+// import Favorits from './spotify/composant/Favorits';
 
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-    <NavigationContainer>
-      <TabNavigator />
-    </NavigationContainer>
-    </SafeAreaProvider>
+   <Bibliotheque/>
   );
 }
 

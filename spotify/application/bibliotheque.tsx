@@ -1,13 +1,7 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Pressable,Text,StyleSheet,FlatList,Image,TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import { scale } from '../search/stylessound/responsiveSize';
 
 export default function Bibliotheque() {
   const playlists = [
@@ -15,32 +9,28 @@ export default function Bibliotheque() {
       id: '1',
       title: 'Mes morceaux likés',
       subtitle: 'Playlist • 210 morceaux',
-      image: 'https://i.scdn.co/image/ab67706c0000da849dbf81cc3a661b7b07d05d56',
     },
     {
       id: '2',
       title: 'Travail Concentré',
-      subtitle: 'Playlist • Spotify',
-      image: 'https://i.scdn.co/image/ab67706f000000025aa3b5078a69f17762c2b534',
+      subtitle: 'fresnel • Spotify',
     },
     {
       id: '3',
       title: 'Chill & Relax',
       subtitle: 'Playlist • Perso',
-      image: 'https://i.scdn.co/image/ab67706f000000029905f933bd445bdfc2e7793b',
     },
     // Tu peux ajouter plus de playlists ici
   ];
 
   const renderItem = ({ item }: { item: typeof playlists[0] }) => (
-    <TouchableOpacity style={styles.itemContainer}>
-      <Image source={{ uri: item.image }} style={styles.coverImage} />
+    <Pressable style={styles.itemContainer}>
       <View style={styles.textContainer}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.subtitle}>{item.subtitle}</Text>
       </View>
       <Icon name="more-vertical" size={20} color="#aaa" />
-    </TouchableOpacity>
+    </Pressable>
   );
 
   return (
@@ -61,17 +51,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#121212',
-    paddingHorizontal: 16,
-    paddingTop: 50,
+    
+    paddingTop: 10,
   },
   header: {
     fontSize: 28,
     fontWeight: 'bold',
     color: 'white',
+     paddingHorizontal: 16,
     marginBottom: 20,
   },
   itemContainer: {
     flexDirection: 'row',
+     marginLeft:(50),
     alignItems: 'center',
     marginBottom: 20,
   },
@@ -79,7 +71,7 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 5,
-    marginRight: 15,
+    // marginRight: 15,
   },
   textContainer: {
     flex: 1,
